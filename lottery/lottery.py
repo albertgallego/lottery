@@ -12,9 +12,12 @@ if __name__ == "__main__":
     fil = raw_input()
     print("Number of Winners:")
     numb = int(raw_input())
+    llist = []
     while numb!= 0 :
         win = pick_winner(fil)
-        if numb == 3:
+        if llist.count(win)>=1:
+            continue
+        elif numb == 3:
             ordinal='rd'
         elif numb == 1:
             ordinal = 'st'
@@ -23,6 +26,7 @@ if __name__ == "__main__":
         elif numb > 3:
             ordinal = 'th'
         print(str(numb) + ordinal + ' place: ' + win)
+        llist.append(win)
         numb = numb - 1
     print("End lottery. Enjoy!")
         
